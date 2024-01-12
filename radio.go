@@ -120,6 +120,7 @@ func RadioModuleSA818Channel(useChannelID string, setVolumeToo bool, setFilterTo
 	found, name := findChannelNameByID(useChannelID)
 	if found {
 		log.Printf("info: Found Channel ID %v Name %v\n", useChannelID, name)
+		oledDisplay(false, 1, OLEDStartColumn, "("+useChannelID+")"+name)
 		setFrequency()
 		if setVolumeToo {
 			time.Sleep(500 * time.Millisecond)
